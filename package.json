@@ -1,0 +1,62 @@
+{
+  "name": "@guoyunhe/create-cli",
+  "version": "0.0.1",
+  "description": "Initialize a Node.js command line tool project",
+  "bin": {
+    "create-cli": "dist/create-cli.js"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "cli-scripts build",
+    "format": "cli-scripts format",
+    "lint": "cli-scripts lint",
+    "test": "cli-scripts test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guoyunhe/create-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "typescript",
+    "build",
+    "compile",
+    "lint",
+    "eslint",
+    "format",
+    "prettier",
+    "test",
+    "jest"
+  ],
+  "author": "Guo Yunhe",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/guoyunhe/create-cli/issues"
+  },
+  "homepage": "https://github.com/guoyunhe/create-cli#readme",
+  "dependencies": {
+    "commander": "^9.4.1",
+    "fast-glob": "^3.2.12",
+    "fs-extra": "^11.1.0"
+  },
+  "devDependencies": {
+    "@guoyunhe/cli-scripts": "^1.0.0",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^18.11.13",
+    "typescript": "^4.9.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@guoyunhe/cli"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
+  }
+}
