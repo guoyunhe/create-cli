@@ -7,7 +7,7 @@ Initialize a Node.js command line tool project
 - TypeScript
 - Localization
 
-## Usage
+## Create or initialize a project
 
 ### NPM
 
@@ -53,3 +53,5 @@ Initialize an existing project:
 cd my-existing-cli
 yarn init @guoyunhe/cli
 ```
+
+## Add multiple command line entries
