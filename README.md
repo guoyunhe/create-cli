@@ -50,6 +50,20 @@ npm init @guoyunhe/cli
 └── tsconfig.json
 ```
 
+## Minimum supported Node.js version
+
+Options: 12, 14, 16(default), 18.
+
+```bash
+npm create @guoyunhe/cli my-new-cli --node-version 14
+```
+
+## Use strict TypeScript configuration
+
+```bash
+npm create @guoyunhe/cli my-new-cli --strict
+```
+
 ## Add multiple bin
 
 Let's say, you want to add a new bin called `perform_health_check`.
