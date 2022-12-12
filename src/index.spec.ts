@@ -1,7 +1,7 @@
-import { foo } from '.';
+import { createProject } from '.';
 
 describe('foo', () => {
   it('bar', () => {
-    expect(foo()).toBe('bar');
+    expect(typeof createProject).toBe('function');
   });
 });

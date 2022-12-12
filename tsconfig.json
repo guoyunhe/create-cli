@@ -18,6 +18,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "importsNotUsedAsValues": "error",
+    "resolveJsonModule": true,
     "checkJs": false,
     "moduleResolution": "node",
     "types": ["node", "jest", "@guoyunhe/cli-scripts/global"]
