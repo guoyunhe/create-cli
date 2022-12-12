@@ -1,7 +1,7 @@
 import { createProject } from '.';
 
-describe('foo', () => {
-  it('bar', () => {
+describe('exports', () => {
+  it('exports createProject', () => {
     expect(typeof createProject).toBe('function');
   });
 });
