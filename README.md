@@ -54,4 +54,26 @@ cd my-existing-cli
 yarn init @guoyunhe/cli
 ```
 
-## Add multiple command line entries
+## Add multiple bin
+
+Let's say, you want to add a new bin called `perform_health_check`.
+
+First, create `src/bin/perform_health_check.ts`, with shebang `#!/usr/bin/env node`:
+
+```ts
+#!/usr/bin/env node
+
+console.log('Doing health check...');
+
+// Add your code...
+```
+
+Then, add bin entry to your `package.json`:
+
+```json
+{
+    "bin": {
+        "perform_health_check": "dist/cjs/bin/perform_health_check.js"
+    }
+}
+```
