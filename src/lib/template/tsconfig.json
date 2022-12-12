@@ -1,6 +1,7 @@
 {
-  "extends": "@tsconfig/node16-strictest/tsconfig.json",
   "compilerOptions": {
+    "resolveJsonModule": true,
     "types": ["node", "jest", "@guoyunhe/cli-scripts/global"]
-  }
+  },
+  "include": ["src"]
 }

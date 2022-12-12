@@ -2,10 +2,22 @@ import { outputFile, outputJSON } from 'fs-extra';
 import { join } from 'path';
 import editorconfig from './template/editorconfig.txt';
 import gitignore from './template/gitignore.txt';
+import tsconfigJson from './template/tsconfig.json';
 import vscodeExtensions from './template/vscode-extensions.json';
 import vscodeSettings from './template/vscode-settings.json';
 
-export function createProject(project?: string) {
+export interface CreateProjectOptions {
+  // Minimum supported Node.js version, 16 by default
+  nodeVersion?: '12' | '14' | '16' | '18';
+  // Use strict TypeScript configuration
+  strict: boolean;
+}
+
+export function createProject(project: string | null, { nodeVersion = '16', strict }: CreateProjectOptions) {
+  if (!['12', '14', '16', '18'].includes(nodeVersion)) {
+    throw new Error('--node-version must be one of the following: 12, 14, 16, 18');
+  }
+
   const projectFullPath = project ? join(process.cwd(), project) : process.cwd();
 
   console.log('Project full path: ', projectFullPath);
@@ -25,4 +37,16 @@ export function createProject(project?: string) {
   // .gitignore
   const gitignorePath = join(projectFullPath, '.gitignore');
   outputFile(gitignorePath, gitignore);
+
+  // tsconfig.json
+  const tsconfigJsonPath = join(projectFullPath, 'tsconfig.json');
+  let tsconfigPreset: string;
+  if (['16', '18'].includes(nodeVersion) && strict) {
+    tsconfigPreset = `@tsconfig/node${nodeVersion}-strictest/tsconfig.json`;
+  } else {
+    tsconfigPreset = `@tsconfig/node${nodeVersion}/tsconfig.json`;
+  }
+  const newTsconfigJson = { extends: tsconfigPreset, ...tsconfigJson };
+
+  outputJSON(tsconfigJsonPath, newTsconfigJson, { spaces: 2 });
 }
