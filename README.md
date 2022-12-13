@@ -50,6 +50,19 @@ npm init @guoyunhe/cli
 └── tsconfig.json
 ```
 
+## Package scripts
+
+```bash
+# Build output
+npm run build
+# Format source code
+npm run format
+# Check lint issues
+npm run lint
+# Run unit tests
+npm test
+```
+
 ## Minimum supported Node.js version
 
 Options: 12, 14, 16(default), 18.
