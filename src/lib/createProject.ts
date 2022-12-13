@@ -1,8 +1,9 @@
-import { outputFile, outputJSON } from 'fs-extra';
-import { join } from 'path';
+import { outputFile, outputJSON, pathExists, readJSON } from 'fs-extra';
+import { basename, join } from 'path';
 import changelog from './template/changelog.txt';
 import editorconfig from './template/editorconfig.txt';
 import gitignore from './template/gitignore.txt';
+import packageJson from './template/package.json';
 import tsconfigJson from './template/tsconfig.json';
 import vscodeExtensions from './template/vscode-extensions.json';
 import vscodeSettings from './template/vscode-settings.json';
@@ -16,9 +17,9 @@ export interface CreateProjectOptions {
   strict: boolean;
 }
 
-export function createProject(
+export async function createProject(
   project: string | null,
-  { packageVersion = '1.0.0', nodeVersion = '16', strict }: CreateProjectOptions
+  { packageVersion, nodeVersion = '16', strict }: CreateProjectOptions
 ) {
   if (!['12', '14', '16', '18'].includes(nodeVersion)) {
     throw new Error('--node-version must be one of the following: 12, 14, 16, 18');
@@ -48,16 +49,32 @@ export function createProject(
   const tsconfigJsonPath = join(projectFullPath, 'tsconfig.json');
   let tsconfigPreset: string;
   if (['16', '18'].includes(nodeVersion) && strict) {
-    tsconfigPreset = `@tsconfig/node${nodeVersion}-strictest/tsconfig.json`;
+    tsconfigPreset = `@tsconfig/node${nodeVersion}-strictest`;
   } else {
-    tsconfigPreset = `@tsconfig/node${nodeVersion}/tsconfig.json`;
+    tsconfigPreset = `@tsconfig/node${nodeVersion}`;
   }
-  const newTsconfigJson = { extends: tsconfigPreset, ...tsconfigJson };
+  const newTsconfigJson = { extends: tsconfigPreset + '/tsconfig.json', ...tsconfigJson };
   outputJSON(tsconfigJsonPath, newTsconfigJson, { spaces: 2 });
+
+  // package.json
+  const packageJsonPath = join(projectFullPath, 'package.json');
+  let oldPackageJson: any = {};
+  if (await pathExists(packageJsonPath)) {
+    oldPackageJson = await readJSON(packageJsonPath, { throws: false });
+  }
+  const newPackageJson = { name: '', version: '', bin: null, ...oldPackageJson, ...packageJson };
+  newPackageJson.name = oldPackageJson?.name || basename(projectFullPath);
+  newPackageJson.version = packageVersion || oldPackageJson?.version || '1.0.0';
+  newPackageJson.devDependencies[tsconfigPreset] = '^1.0.0';
+  const binName = basename(newPackageJson.name);
+  newPackageJson.bin ||= {
+    [binName]: `dist/cjs/bin/${binName}.js`,
+  };
+  outputJSON(packageJsonPath, newPackageJson, { spaces: 2 });
 
   // CHANGELOG.md
   const changelogPath = join(projectFullPath, 'CHANGELOG.md');
   const date = new Date().toISOString().substring(0, 10);
-  const newChangelog = changelog.replace('%date%', date).replace('%version%', packageVersion);
+  const newChangelog = changelog.replace('%date%', date).replace('%version%', newPackageJson.version);
   outputFile(changelogPath, newChangelog);
 }
