@@ -2,27 +2,22 @@
 
 Initialize a Node.js command line tool project
 
-## Features
+## Get Started
 
-- TypeScript
-- Localization
-
-## Create or initialize a project
-
-Create a new project:
+### Create a new project
 
 ```bash
 npm create @guoyunhe/cli my-new-cli
 ```
 
-Initialize an existing project:
+### Initialize/migrate an existing project:
 
 ```bash
 cd my-existing-cli
 npm init @guoyunhe/cli
 ```
 
-## Project structure
+### Project structure
 
 ```bash
 ├── dist                    # Build output
@@ -50,7 +45,7 @@ npm init @guoyunhe/cli
 └── tsconfig.json
 ```
 
-## Package scripts
+### Package scripts
 
 ```bash
 # Build output
@@ -59,11 +54,25 @@ npm run build
 npm run format
 # Check lint issues
 npm run lint
-# Run unit tests
+# Run unit tests (support all jest command options)
 npm test
+# Run unit tests in watch mode
+npm test -- --watch
+# Update unit test snapshots
+npm test -- -u
 ```
 
-## Minimum supported Node.js version
+## Advanced Options
+
+### Initial package version
+
+1.0.0 by default.
+
+```bash
+npm create @guoyunhe/cli my-new-cli --package-version 0.1.0
+```
+
+### Minimum supported Node.js version
 
 Options: 12, 14, 16(default), 18.
 
@@ -71,13 +80,13 @@ Options: 12, 14, 16(default), 18.
 npm create @guoyunhe/cli my-new-cli --node-version 14
 ```
 
-## Use strict TypeScript configuration
+### Use strict TypeScript configuration
 
 ```bash
 npm create @guoyunhe/cli my-new-cli --strict
 ```
 
-## Add multiple bin
+### Add multiple bin
 
 Let's say, you want to add a new bin called `perform_health_check`.
 
@@ -101,7 +110,7 @@ Then, add bin entry to your `package.json`:
 }
 ```
 
-## Pure ESM package
+### Pure ESM package
 
 If you want your package to be pure ESM, you should modify the following attributes in `package.json`:
 
