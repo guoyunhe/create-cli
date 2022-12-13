@@ -1,4 +1,5 @@
 import { outputFile, outputJSON, pathExists, readJSON } from 'fs-extra';
+import merge from 'merge';
 import { basename, join } from 'path';
 import changelog from './template/changelog.txt';
 import editorconfig from './template/editorconfig.txt';
@@ -62,12 +63,13 @@ export async function createProject(
   if (await pathExists(packageJsonPath)) {
     oldPackageJson = await readJSON(packageJsonPath, { throws: false });
   }
-  const newPackageJson = { name: '', version: '', bin: null, ...oldPackageJson, ...packageJson };
-  newPackageJson.name = oldPackageJson?.name || basename(projectFullPath);
-  newPackageJson.version = packageVersion || oldPackageJson?.version || '1.0.0';
+  const newPackageJson: any = {};
+  merge(newPackageJson, oldPackageJson, packageJson);
+  newPackageJson.name ||= basename(projectFullPath);
+  newPackageJson.version = packageVersion || newPackageJson.version || '1.0.0';
   newPackageJson.devDependencies[tsconfigPreset] = '^1.0.0';
   const binName = basename(newPackageJson.name);
-  newPackageJson.bin ||= {
+  newPackageJson.bin = {
     [binName]: `dist/cjs/bin/${binName}.js`,
   };
   outputJSON(packageJsonPath, newPackageJson, { spaces: 2 });
