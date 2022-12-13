@@ -64,7 +64,7 @@ export async function createProject(
     oldPackageJson = await readJSON(packageJsonPath, { throws: false });
   }
   const newPackageJson: any = {};
-  merge(newPackageJson, oldPackageJson, packageJson);
+  merge.recursive(newPackageJson, oldPackageJson, packageJson);
   newPackageJson.name ||= basename(projectFullPath);
   newPackageJson.version = packageVersion || newPackageJson.version || '1.0.0';
   newPackageJson.devDependencies[tsconfigPreset] = '^1.0.0';
