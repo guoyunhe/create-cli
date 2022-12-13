@@ -9,10 +9,10 @@
   ],
   "scripts": {
     "build": "cli-scripts build",
+    "watch": "cli-scripts watch",
     "format": "cli-scripts format",
     "lint": "cli-scripts lint",
-    "test": "cli-scripts test",
-    "watch": "cli-scripts watch"
+    "test": "cli-scripts test"
   },
   "dependencies": {
     "commander": "^9.4.1"

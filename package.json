@@ -14,10 +14,10 @@
   ],
   "scripts": {
     "build": "cli-scripts build",
+    "watch": "cli-scripts watch",
     "format": "cli-scripts format",
     "lint": "cli-scripts lint",
-    "test": "cli-scripts test",
-    "watch": "cli-scripts watch"
+    "test": "cli-scripts test"
   },
   "repository": {
     "type": "git",
@@ -47,7 +47,7 @@
     "fs-extra": "^11.1.0"
   },
   "devDependencies": {
-    "@guoyunhe/cli-scripts": "^1.2.0",
+    "@guoyunhe/cli-scripts": "^1.3.0",
     "@tsconfig/node16-strictest": "^1.0.4",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "^29.2.4",
