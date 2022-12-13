@@ -50,6 +50,8 @@ npm init @guoyunhe/cli
 ```bash
 # Build output
 npm run build
+# Build output in watch mode
+npm run watch
 # Format source code
 npm run format
 # Check lint issues

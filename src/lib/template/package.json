@@ -11,7 +11,8 @@
     "build": "cli-scripts build",
     "format": "cli-scripts format",
     "lint": "cli-scripts lint",
-    "test": "cli-scripts test"
+    "test": "cli-scripts test",
+    "watch": "cli-scripts watch"
   },
   "dependencies": {
     "commander": "^9.4.1"
