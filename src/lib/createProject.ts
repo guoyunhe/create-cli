@@ -1,5 +1,6 @@
 import { outputFile, outputJSON } from 'fs-extra';
 import { join } from 'path';
+import changelog from './template/changelog.txt';
 import editorconfig from './template/editorconfig.txt';
 import gitignore from './template/gitignore.txt';
 import tsconfigJson from './template/tsconfig.json';
@@ -7,13 +8,18 @@ import vscodeExtensions from './template/vscode-extensions.json';
 import vscodeSettings from './template/vscode-settings.json';
 
 export interface CreateProjectOptions {
+  // Initial version number, 1.0.0 by default
+  packageVersion?: string;
   // Minimum supported Node.js version, 16 by default
   nodeVersion?: '12' | '14' | '16' | '18';
   // Use strict TypeScript configuration
   strict: boolean;
 }
 
-export function createProject(project: string | null, { nodeVersion = '16', strict }: CreateProjectOptions) {
+export function createProject(
+  project: string | null,
+  { packageVersion = '1.0.0', nodeVersion = '16', strict }: CreateProjectOptions
+) {
   if (!['12', '14', '16', '18'].includes(nodeVersion)) {
     throw new Error('--node-version must be one of the following: 12, 14, 16, 18');
   }
@@ -47,6 +53,11 @@ export function createProject(project: string | null, { nodeVersion = '16', stri
     tsconfigPreset = `@tsconfig/node${nodeVersion}/tsconfig.json`;
   }
   const newTsconfigJson = { extends: tsconfigPreset, ...tsconfigJson };
-
   outputJSON(tsconfigJsonPath, newTsconfigJson, { spaces: 2 });
+
+  // CHANGELOG.md
+  const changelogPath = join(projectFullPath, 'CHANGELOG.md');
+  const date = new Date().toISOString().substring(0, 10);
+  const newChangelog = changelog.replace('%date%', date).replace('%version%', packageVersion);
+  outputFile(changelogPath, newChangelog);
 }

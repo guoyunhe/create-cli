@@ -1,0 +1,9 @@
+# Changelog
+
+## %version% - %date%
+
+- Added something
+- Changed something
+- Fixed something
+- Removed something
+- Deprecated something

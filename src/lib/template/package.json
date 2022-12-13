@@ -1,0 +1,37 @@
+{
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "cli-scripts build",
+    "format": "cli-scripts format",
+    "lint": "cli-scripts lint",
+    "test": "cli-scripts test"
+  },
+  "dependencies": {
+    "commander": "^9.4.1"
+  },
+  "devDependencies": {
+    "@guoyunhe/cli-scripts": "^1.1.3",
+    "@types/jest": "^29.2.4",
+    "@types/node": "^18.11.13",
+    "typescript": "^4.9.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@guoyunhe/cli"
+    ]
+  },
+  "jest": {
+    "preset": "@guoyunhe/cli-scripts"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120
+  }
+}

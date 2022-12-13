@@ -46,11 +46,11 @@
     "fs-extra": "^11.1.0"
   },
   "devDependencies": {
-    "@guoyunhe/cli-scripts": "^1.1.3",
+    "@guoyunhe/cli-scripts": "^1.2.0",
     "@tsconfig/node16-strictest": "^1.0.4",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "^29.2.4",
-    "@types/node": "^18.11.13",
+    "@types/node": "^18.11.14",
     "typescript": "^4.9.4"
   },
   "eslintConfig": {
