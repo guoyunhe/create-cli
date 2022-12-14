@@ -7,13 +7,13 @@ Initialize a Node.js command line tool project
 ### Create a new project
 
 ```bash
-npm create @guoyunhe/cli my-new-cli
+npm create @guoyunhe/cli my-cli
 ```
 
 ### Initialize/migrate an existing project:
 
 ```bash
-cd my-existing-cli
+cd my-cli
 npm init @guoyunhe/cli
 ```
 
@@ -71,7 +71,7 @@ npm test -- -u
 1.0.0 by default.
 
 ```bash
-npm create @guoyunhe/cli my-new-cli --package-version 0.1.0
+npm create @guoyunhe/cli my-cli --package-version 0.1.0
 ```
 
 ### Minimum supported Node.js version
@@ -79,13 +79,13 @@ npm create @guoyunhe/cli my-new-cli --package-version 0.1.0
 Options: 12, 14, 16(default), 18.
 
 ```bash
-npm create @guoyunhe/cli my-new-cli --node-version 14
+npm create @guoyunhe/cli my-cli --node-version 14
 ```
 
 ### Use strict TypeScript configuration
 
 ```bash
-npm create @guoyunhe/cli my-new-cli --strict
+npm create @guoyunhe/cli my-cli --strict
 ```
 
 ### Add multiple bin
