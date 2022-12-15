@@ -5,6 +5,7 @@ import changelog from './template/changelog.txt';
 import editorconfig from './template/editorconfig.txt';
 import gitignore from './template/gitignore.txt';
 import packageJson from './template/package.json';
+import readme from './template/readme.txt';
 import tsconfigJson from './template/tsconfig.json';
 import vscodeExtensions from './template/vscode-extensions.json';
 import vscodeSettings from './template/vscode-settings.json';
@@ -78,6 +79,11 @@ export async function createProject(
   // CHANGELOG.md
   const changelogPath = join(projectFullPath, 'CHANGELOG.md');
   const date = new Date().toISOString().substring(0, 10);
-  const newChangelog = changelog.replace('%date%', date).replace('%version%', newPackageJson.version);
+  const newChangelog = changelog.replaceAll('%date%', date).replaceAll('%version%', newPackageJson.version);
   outputFile(changelogPath, newChangelog);
+
+  // README.md
+  const readmePath = join(projectFullPath, 'README.md');
+  const newReadme = readme.replaceAll('%name%', newPackageJson.name).replaceAll('%binName%', binName);
+  outputFile(readmePath, newReadme);
 }
