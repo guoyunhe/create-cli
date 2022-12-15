@@ -15,13 +15,13 @@
     "test": "cli-scripts test"
   },
   "dependencies": {
-    "commander": "^9.4.1"
+    "commander": "^9.0.0"
   },
   "devDependencies": {
-    "@guoyunhe/cli-scripts": "^1.1.3",
-    "@types/jest": "^29.2.4",
-    "@types/node": "^18.11.13",
-    "typescript": "^4.9.4"
+    "@guoyunhe/cli-scripts": "^1.0.0",
+    "@types/jest": "^29.0.0",
+    "@types/node": "^16.0.0",
+    "typescript": "^4.0.0"
   },
   "eslintConfig": {
     "extends": "@guoyunhe/cli-scripts"

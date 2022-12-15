@@ -68,6 +68,7 @@ export async function createProject(
   newPackageJson.name ||= basename(projectFullPath);
   newPackageJson.version = packageVersion || newPackageJson.version || '1.0.0';
   newPackageJson.devDependencies[tsconfigPreset] = '^1.0.0';
+  newPackageJson.devDependencies['@types/node'] = `^${nodeVersion}.0.0`;
   const binName = basename(newPackageJson.name);
   newPackageJson.bin = {
     [binName]: `dist/cjs/bin/${binName}.js`,
