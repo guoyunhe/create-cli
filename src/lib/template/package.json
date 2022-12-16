@@ -21,6 +21,7 @@
     "@guoyunhe/cli-scripts": "^1.0.0",
     "@types/jest": "^29.0.0",
     "@types/node": "^16.0.0",
+    "jest-mock-console": "^2.0.0",
     "typescript": "^4.0.0"
   },
   "eslintConfig": {

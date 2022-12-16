@@ -5,6 +5,7 @@ import binTs from './template/bin.txt';
 import changelog from './template/changelog.txt';
 import editorconfig from './template/editorconfig.txt';
 import gitignore from './template/gitignore.txt';
+import indexTestTs from './template/index.test.txt';
 import indexTs from './template/index.txt';
 import packageJson from './template/package.json';
 import readme from './template/readme.txt';
@@ -97,4 +98,8 @@ export async function createProject(
   // src/index.ts
   const indexTsPath = join(projectFullPath, 'src', 'index.ts');
   outputFile(indexTsPath, indexTs);
+
+  // src/index.test.ts
+  const indexTestTsPath = join(projectFullPath, 'src', 'index.test.ts');
+  outputFile(indexTestTsPath, indexTestTs);
 }

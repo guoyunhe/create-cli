@@ -53,6 +53,7 @@
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "^29.2.4",
     "@types/node": "^16.18.9",
+    "jest-mock-console": "^2.0.0",
     "typescript": "^4.9.4"
   },
   "eslintConfig": {

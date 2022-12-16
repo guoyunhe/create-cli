@@ -1,5 +1,5 @@
 export interface Options {
-  repeat: number;
+  repeat?: number;
 }
 
 export function action(word: string, { repeat = 1 }: Options) {
