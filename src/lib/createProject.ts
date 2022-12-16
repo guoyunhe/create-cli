@@ -1,9 +1,11 @@
 import { outputFile, outputJSON, pathExists, readJSON } from 'fs-extra';
 import merge from 'merge';
 import { basename, join } from 'path';
+import binTs from './template/bin.txt';
 import changelog from './template/changelog.txt';
 import editorconfig from './template/editorconfig.txt';
 import gitignore from './template/gitignore.txt';
+import indexTs from './template/index.txt';
 import packageJson from './template/package.json';
 import readme from './template/readme.txt';
 import tsconfigJson from './template/tsconfig.json';
@@ -86,4 +88,13 @@ export async function createProject(
   const readmePath = join(projectFullPath, 'README.md');
   const newReadme = readme.replaceAll('%name%', newPackageJson.name).replaceAll('%binName%', binName);
   outputFile(readmePath, newReadme);
+
+  // src/bin/binName.ts
+  const binTsPath = join(projectFullPath, 'src', 'bin', binName + '.ts');
+  const newBinTs = binTs.replaceAll('%binName%', binName);
+  outputFile(binTsPath, newBinTs);
+
+  // src/index.ts
+  const indexTsPath = join(projectFullPath, 'src', 'index.ts');
+  outputFile(indexTsPath, indexTs);
 }
