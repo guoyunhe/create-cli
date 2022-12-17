@@ -1,6 +1,6 @@
 {
   "name": "@guoyunhe/create-cli",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Initialize a Node.js command line tool project",
   "bin": {
     "create-cli": "dist/cjs/bin/create-cli.js"
@@ -13,11 +13,11 @@
     "README.md"
   ],
   "scripts": {
-    "build": "cli-scripts build",
-    "watch": "cli-scripts watch",
-    "format": "cli-scripts format",
-    "lint": "cli-scripts lint",
-    "test": "cli-scripts test"
+    "build": "node-scripts build",
+    "watch": "node-scripts watch",
+    "format": "node-scripts format",
+    "lint": "node-scripts lint",
+    "test": "node-scripts test"
   },
   "repository": {
     "type": "git",
@@ -49,7 +49,7 @@
     "sort-package-json": "^1.57.0"
   },
   "devDependencies": {
-    "@guoyunhe/cli-scripts": "^1.4.0",
+    "@guoyunhe/node-scripts": "^1.4.0",
     "@tsconfig/node16-strictest": "^1.0.4",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "^29.2.4",
@@ -58,10 +58,10 @@
     "typescript": "^4.9.4"
   },
   "eslintConfig": {
-    "extends": "@guoyunhe/cli-scripts"
+    "extends": "@guoyunhe/node-scripts"
   },
   "jest": {
-    "preset": "@guoyunhe/cli-scripts"
+    "preset": "@guoyunhe/node-scripts"
   },
   "prettier": {
     "singleQuote": true,

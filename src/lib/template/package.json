@@ -8,27 +8,27 @@
     "README.md"
   ],
   "scripts": {
-    "build": "cli-scripts build",
-    "watch": "cli-scripts watch",
-    "format": "cli-scripts format",
-    "lint": "cli-scripts lint",
-    "test": "cli-scripts test"
+    "build": "node-scripts build",
+    "watch": "node-scripts watch",
+    "format": "node-scripts format",
+    "lint": "node-scripts lint",
+    "test": "node-scripts test"
   },
   "dependencies": {
     "commander": "^9.0.0"
   },
   "devDependencies": {
-    "@guoyunhe/cli-scripts": "^1.0.0",
+    "@guoyunhe/node-scripts": "^1.0.0",
     "@types/jest": "^29.0.0",
     "@types/node": "^16.0.0",
     "jest-mock-console": "^2.0.0",
     "typescript": "^4.0.0"
   },
   "eslintConfig": {
-    "extends": "@guoyunhe/cli-scripts"
+    "extends": "@guoyunhe/node-scripts"
   },
   "jest": {
-    "preset": "@guoyunhe/cli-scripts"
+    "preset": "@guoyunhe/node-scripts"
   },
   "prettier": {
     "singleQuote": true,
