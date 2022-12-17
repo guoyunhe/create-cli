@@ -33,9 +33,8 @@ npm init @guoyunhe/cli
 │       └── index.d.ts
 ├── src                     # Source code
 │   ├── bin                 # CLI scripts
-│   │   ├── my-cli.spec.ts  # CLI unit test
 │   │   └── my-cli.ts       # CLI script
-│   ├── index.spec.ts       # API unit test
+│   ├── index.test.ts       # API unit test
 │   └── index.ts            # API entry (add all exports here)
 ├── .editorconfig
 ├── .gitignore
