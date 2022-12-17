@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 - 2022-12-17
+
+- Add `typings` attribute to `package.json`
+
 ## 1.2.0 - 2022-12-17
 
 - Rename `cli-scripts` to `node-scripts`
