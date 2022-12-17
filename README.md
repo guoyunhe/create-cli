@@ -10,7 +10,7 @@ Initialize a Node.js command line tool project
 npm create @guoyunhe/cli my-cli
 ```
 
-### Initialize/migrate an existing project:
+### Initialize an existing project
 
 ```bash
 cd my-cli
