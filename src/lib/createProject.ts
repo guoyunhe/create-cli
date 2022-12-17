@@ -1,6 +1,7 @@
 import { outputFile, outputJSON, pathExists, readJSON } from 'fs-extra';
 import merge from 'merge';
 import { basename, join } from 'path';
+import sortPackageJson from 'sort-package-json';
 import binTs from './template/bin.txt';
 import changelog from './template/changelog.txt';
 import editorconfig from './template/editorconfig.txt';
@@ -77,7 +78,7 @@ export async function createProject(
   newPackageJson.bin = {
     [binName]: `dist/cjs/bin/${binName}.js`,
   };
-  outputJSON(packageJsonPath, newPackageJson, { spaces: 2 });
+  outputJSON(packageJsonPath, sortPackageJson(newPackageJson), { spaces: 2 });
 
   // CHANGELOG.md
   const changelogPath = join(projectFullPath, 'CHANGELOG.md');

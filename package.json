@@ -45,7 +45,8 @@
     "commander": "^9.4.1",
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.1.0",
-    "merge": "^2.1.1"
+    "merge": "^2.1.1",
+    "sort-package-json": "^1.57.0"
   },
   "devDependencies": {
     "@guoyunhe/cli-scripts": "^1.4.0",

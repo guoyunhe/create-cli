@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 - 2022-12-17
+
+- Format `package.json` with `sort-package-json`
+
 ## 1.0.0 - 2022-12-16
 
 - Support create basic cli project
