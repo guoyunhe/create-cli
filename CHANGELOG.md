@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0 - 2023-01-22
+
+- Initialize `description` and `keywords`
+- Use `package-json-from-git` to initialize `repository`, `homepage`, `bugs` and `author` fields in `package.json` from Git data
+
 ## 1.3.0 - 2022-12-17
 
 - Add `typings` attribute to `package.json`

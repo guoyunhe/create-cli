@@ -1,4 +1,9 @@
 {
+  "description": "",
+  "keywords": [
+    "node",
+    "cli"
+  ],
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/dts/index.d.ts",

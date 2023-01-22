@@ -1,6 +1,6 @@
 {
   "name": "@guoyunhe/create-cli",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Initialize a Node.js command line tool project",
   "bin": {
     "create-cli": "dist/cjs/bin/create-cli.js"
@@ -42,18 +42,19 @@
   },
   "homepage": "https://github.com/guoyunhe/create-cli#readme",
   "dependencies": {
-    "commander": "^9.4.1",
+    "commander": "^9.5.0",
     "fast-glob": "^3.2.12",
     "fs-extra": "^11.1.0",
     "merge": "^2.1.1",
+    "package-json-from-git": "^1.0.0",
     "sort-package-json": "^1.57.0"
   },
   "devDependencies": {
-    "@guoyunhe/node-scripts": "^1.4.0",
+    "@guoyunhe/node-scripts": "^1.5.1",
     "@tsconfig/node16-strictest": "^1.0.4",
     "@types/fs-extra": "^9.0.13",
-    "@types/jest": "^29.2.4",
-    "@types/node": "^16.18.9",
+    "@types/jest": "^29.2.6",
+    "@types/node": "^16.18.11",
     "jest-mock-console": "^2.0.0",
     "typescript": "^4.9.4"
   },
