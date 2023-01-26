@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.1 - 2023-01-26
+
+- Change Prettier `printWidth` to `100`
+- Fix VSCode `editor.rulers` settings
+
 ## 1.4.0 - 2023-01-22
 
 - Initialize `description` and `keywords`
