@@ -1,18 +1,8 @@
 {
-  "description": "",
-  "keywords": [
-    "node",
-    "cli"
-  ],
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/dts/index.d.ts",
-  "files": [
-    "dist",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
-  ],
+  "files": ["dist", "CHANGELOG.md", "LICENSE", "README.md"],
   "scripts": {
     "build": "node-scripts build",
     "watch": "node-scripts watch",
