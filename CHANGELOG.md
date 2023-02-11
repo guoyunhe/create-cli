@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.1 - 2023-02-11
+
+- Fixed bin path
+
 ## 1.5.0 - 2023-02-11
 
 - Updated `@guoyunhe/node-scripts` to 2.0

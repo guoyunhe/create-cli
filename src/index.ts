@@ -78,7 +78,7 @@ export async function createProject(
   newPackageJson.devDependencies['@types/node'] = `^${nodeVersion}.0.0`;
   const binName = basename(newPackageJson.name);
   newPackageJson.bin = {
-    [binName]: `dist/cjs/bin/${binName}.js`,
+    [binName]: `dist/${binName}.js`,
   };
   outputJSON(packageJsonPath, sortPackageJson(newPackageJson), { spaces: 2 });
 
