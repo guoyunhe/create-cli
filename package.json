@@ -1,6 +1,6 @@
 {
   "name": "@guoyunhe/create-cli",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Initialize a Node.js command line tool project",
   "bin": {
     "create-cli": "dist/create-cli.js"

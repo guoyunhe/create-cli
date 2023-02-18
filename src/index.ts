@@ -20,7 +20,7 @@ export interface CreateProjectOptions {
   // Initial version number, 1.0.0 by default
   packageVersion?: string;
   // Minimum supported Node.js version, 16 by default
-  nodeVersion?: '12' | '14' | '16' | '18';
+  nodeVersion?: '14' | '16' | '18';
   // Use strict TypeScript configuration
   strict: boolean;
 }
@@ -29,8 +29,8 @@ export async function createProject(
   project: string | null,
   { packageVersion, nodeVersion = '16', strict }: CreateProjectOptions
 ) {
-  if (!['12', '14', '16', '18'].includes(nodeVersion)) {
-    throw new Error('--node-version must be one of the following: 12, 14, 16, 18');
+  if (!['14', '16', '18'].includes(nodeVersion)) {
+    throw new Error('--node-version must be one of the following: 14, 16, 18');
   }
 
   const projectFullPath = project ? join(process.cwd(), project) : process.cwd();

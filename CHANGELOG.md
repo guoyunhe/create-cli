@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.7.0 - 2023-02-18
+
+- Changed `package.json` template:
+  - Updated `commander` to 10.0, requires Node.js 14+
+- Updated `commander` to 10.0, requires Node.js 14+
+- Changed `--node-version` options, drop Node.js `12` support
+
 ## 1.6.0 - 2023-02-18
 
 - Changed `package.json` template:
