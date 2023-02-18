@@ -20,22 +20,17 @@ npm init @guoyunhe/cli
 ### Project structure
 
 ```bash
-├── dist                    # Build output
-│   ├── cjs                 # CJS format
-│   │   ├── bin             # CJS CLI scripts
-│   │   │   └── my-cli.js
-│   │   └── index.js        # CJS API entry
-│   ├── esm                 # ESM module format
-│   │   ├── bin             # ESM CLI scripts
-│   │   │   └── my-cli.js
-│   │   └── index.js        # ESM API entry
-│   └── dts                 # TypeScript types
-│       └── index.d.ts
-├── src                     # Source code
-│   ├── bin                 # CLI scripts
-│   │   └── my-cli.ts       # CLI script
-│   ├── index.test.ts       # API unit test
-│   └── index.ts            # API entry (add all exports here)
+├── dist # Build output
+│   ├── index.js # CJS API entry
+│   ├── index.mjs # ESM API entry
+│   ├── index.d.ts # TypeScript declaration
+│   ├── my-cli.js # CJS CLI script
+│   └── my-cli.mjs # ESM CLI script
+├── src # Source code
+│   ├── bin # CLI scripts
+│   │   └── my-cli.ts
+│   ├── index.test.ts # API unit test
+│   └── index.ts # API entry (add all exports here)
 ├── .editorconfig
 ├── .gitignore
 ├── CHANGELOG.md
@@ -75,7 +70,7 @@ npm create @guoyunhe/cli my-cli --package-version 0.1.0
 
 ### Minimum supported Node.js version
 
-Options: 12, 14, 16(default), 18.
+Options: 14, 16(default), 18.
 
 ```bash
 npm create @guoyunhe/cli my-cli --node-version 14
@@ -89,9 +84,9 @@ npm create @guoyunhe/cli my-cli --strict
 
 ### Add multiple bin
 
-Let's say, you want to add a new bin called `perform_health_check`.
+Let's say, you want to add a new bin called `health-check`.
 
-First, create `src/bin/perform_health_check.ts`, with shebang `#!/usr/bin/env node`:
+First, create `src/bin/health-check.ts`, with shebang `#!/usr/bin/env node`:
 
 ```ts
 #!/usr/bin/env node
@@ -106,21 +101,7 @@ Then, add bin entry to your `package.json`:
 ```json
 {
   "bin": {
-    "perform_health_check": "dist/cjs/bin/perform_health_check.js"
+    "health-check": "dist/health-check.js"
   }
-}
-```
-
-### Pure ESM package
-
-If you want your package to be pure ESM, you should modify the following attributes in `package.json`:
-
-```json
-{
-  "type": "module",
-  "bin": {
-    "my-cli": "dist/esm/bin/my-cli.js"
-  },
-  "main": "dist/esm/index.js"
 }
 ```
