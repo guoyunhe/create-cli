@@ -4,6 +4,8 @@
 
 - Changed `package.json` template:
   - Updated `@guoyunhe/node-scripts` to 2.0
+- Changed `bin` template:
+  - Removed unneeded null check for `PACKAGE_VERSION`
 
 ## 1.5.1 - 2023-02-11
 

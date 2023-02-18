@@ -51,7 +51,7 @@
     "sort-package-json": "^1.57.0"
   },
   "devDependencies": {
-    "@guoyunhe/node-scripts": "^2.0.2",
+    "@guoyunhe/node-scripts": "^2.0.5",
     "@tsconfig/node16-strictest": "^1.0.4",
     "@types/fs-extra": "^9.0.13",
     "@types/jest": "^29.4.0",
