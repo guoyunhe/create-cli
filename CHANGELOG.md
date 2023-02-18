@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.0 - 2023-02-18
+
+- Changed `package.json` template:
+  - Updated `@guoyunhe/node-scripts` to 2.0
+
 ## 1.5.1 - 2023-02-11
 
 - Fixed bin path

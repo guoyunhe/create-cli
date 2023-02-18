@@ -14,7 +14,7 @@
     "commander": "^9.0.0"
   },
   "devDependencies": {
-    "@guoyunhe/node-scripts": "^1.0.0",
+    "@guoyunhe/node-scripts": "^2.0.0",
     "@types/jest": "^29.0.0",
     "@types/node": "^16.0.0",
     "jest-mock-console": "^2.0.0",
