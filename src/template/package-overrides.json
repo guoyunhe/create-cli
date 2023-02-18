@@ -11,7 +11,7 @@
     "test": "node-scripts test"
   },
   "dependencies": {
-    "commander": "^9.0.0"
+    "commander": "^10.0.0"
   },
   "devDependencies": {
     "@guoyunhe/node-scripts": "^2.0.0",
