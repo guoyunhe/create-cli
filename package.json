@@ -2,28 +2,6 @@
   "name": "@guoyunhe/create-cli",
   "version": "1.7.0",
   "description": "Initialize a Node.js command line tool project",
-  "bin": {
-    "create-cli": "dist/create-cli.js"
-  },
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md"
-  ],
-  "scripts": {
-    "build": "node-scripts build",
-    "watch": "node-scripts watch",
-    "format": "node-scripts format",
-    "lint": "node-scripts lint",
-    "test": "node-scripts test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/guoyunhe/create-cli.git"
-  },
   "keywords": [
     "cli",
     "typescript",
@@ -36,28 +14,37 @@
     "test",
     "jest"
   ],
-  "author": "Guo Yunhe",
-  "license": "GPL-3.0",
+  "homepage": "https://github.com/guoyunhe/create-cli#readme",
   "bugs": {
     "url": "https://github.com/guoyunhe/create-cli/issues"
   },
-  "homepage": "https://github.com/guoyunhe/create-cli#readme",
-  "dependencies": {
-    "commander": "^10.0.0",
-    "fast-glob": "^3.2.12",
-    "fs-extra": "^11.1.0",
-    "merge": "^2.1.1",
-    "package-json-from-git": "^1.2.2",
-    "sort-package-json": "^1.57.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guoyunhe/create-cli.git"
   },
-  "devDependencies": {
-    "@guoyunhe/node-scripts": "^2.0.5",
-    "@tsconfig/node16-strictest": "^1.0.4",
-    "@types/fs-extra": "^9.0.13",
-    "@types/jest": "^29.4.0",
-    "@types/node": "^16.18.12",
-    "jest-mock-console": "^2.0.0",
-    "typescript": "^4.9.5"
+  "license": "GPL-3.0",
+  "author": "Guo Yunhe",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "bin": {
+    "create-cli": "dist/create-cli.js"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node-scripts build",
+    "format": "node-scripts format",
+    "lint": "node-scripts lint",
+    "test": "node-scripts test",
+    "watch": "node-scripts watch"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true
   },
   "eslintConfig": {
     "extends": "@guoyunhe/node-scripts"
@@ -65,8 +52,22 @@
   "jest": {
     "preset": "@guoyunhe/node-scripts"
   },
-  "prettier": {
-    "singleQuote": true,
-    "printWidth": 100
+  "dependencies": {
+    "commander": "^10.0.1",
+    "fast-glob": "^3.2.12",
+    "fs-extra": "^11.1.1",
+    "merge": "^2.1.1",
+    "package-json-from-git": "^1.2.2",
+    "sort-package-json": "^1.57.0"
+  },
+  "devDependencies": {
+    "@guoyunhe/node-scripts": "^2.2.0",
+    "@tsconfig/node20": "^1.0.1",
+    "@tsconfig/strictest": "^2.0.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/git-url-parse": "^9.0.1",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.3.1",
+    "typescript": "^5.1.3"
   }
 }

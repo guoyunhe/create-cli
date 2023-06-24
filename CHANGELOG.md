@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.8.0 - 2023-06-24
+
+- Updated to nodejs 20
+- Updated to typescript 5
+
 ## 1.7.0 - 2023-02-18
 
 - Changed `package.json` template:

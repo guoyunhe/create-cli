@@ -19,20 +19,12 @@ import vscodeSettings from './template/vscode-settings.json';
 export interface CreateProjectOptions {
   // Initial version number, 1.0.0 by default
   packageVersion?: string;
-  // Minimum supported Node.js version, 16 by default
-  nodeVersion?: '14' | '16' | '18';
-  // Use strict TypeScript configuration
-  strict: boolean;
 }
 
 export async function createProject(
   project: string | null,
-  { packageVersion, nodeVersion = '16', strict }: CreateProjectOptions
+  { packageVersion }: CreateProjectOptions
 ) {
-  if (!['14', '16', '18'].includes(nodeVersion)) {
-    throw new Error('--node-version must be one of the following: 14, 16, 18');
-  }
-
   const projectFullPath = project ? join(process.cwd(), project) : process.cwd();
 
   console.log('Project full path: ', projectFullPath);
@@ -55,14 +47,7 @@ export async function createProject(
 
   // tsconfig.json
   const tsconfigJsonPath = join(projectFullPath, 'tsconfig.json');
-  let tsconfigPreset: string;
-  if (['16', '18'].includes(nodeVersion) && strict) {
-    tsconfigPreset = `@tsconfig/node${nodeVersion}-strictest`;
-  } else {
-    tsconfigPreset = `@tsconfig/node${nodeVersion}`;
-  }
-  const newTsconfigJson = { extends: tsconfigPreset + '/tsconfig.json', ...tsconfigJson };
-  outputJSON(tsconfigJsonPath, newTsconfigJson, { spaces: 2 });
+  outputJSON(tsconfigJsonPath, tsconfigJson, { spaces: 2 });
 
   // package.json
   const packageJsonPath = join(projectFullPath, 'package.json');
@@ -74,8 +59,6 @@ export async function createProject(
   merge.recursive(newPackageJson, packageJsonDefaults, oldPackageJson, packageJsonOverrides);
   newPackageJson.name ||= basename(projectFullPath);
   newPackageJson.version = packageVersion || newPackageJson.version || '1.0.0';
-  newPackageJson.devDependencies[tsconfigPreset] = '^1.0.0';
-  newPackageJson.devDependencies['@types/node'] = `^${nodeVersion}.0.0`;
   const binName = basename(newPackageJson.name);
   newPackageJson.bin = {
     [binName]: `dist/${binName}.js`,

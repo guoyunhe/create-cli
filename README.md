@@ -68,20 +68,6 @@ npm test -- -u
 npm create @guoyunhe/cli my-cli --package-version 0.1.0
 ```
 
-### Minimum supported Node.js version
-
-Options: 14, 16(default), 18.
-
-```bash
-npm create @guoyunhe/cli my-cli --node-version 14
-```
-
-### Use strict TypeScript configuration
-
-```bash
-npm create @guoyunhe/cli my-cli --strict
-```
-
 ### Add multiple bin
 
 Let's say, you want to add a new bin called `health-check`.
